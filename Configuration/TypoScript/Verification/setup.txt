@@ -10,7 +10,7 @@ page {
 		10 = TEXT
 		10 {
 			data = TSFE: id
-			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_google_verification_id}
+			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_verification_google_id}
 			stdWrap.insertData = 1
 			required = 1
 			wrap = <meta name="google-site-verification" content=" | " />
@@ -21,7 +21,7 @@ page {
 
 		20 < .10
 		20 {
-			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_yahoo_verification_id}
+			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_verification_yahoo_id}
 			wrap = <meta name="y_key" content=" | " />
 		}
 	}

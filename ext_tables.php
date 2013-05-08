@@ -5,15 +5,15 @@ if (!defined ('TYPO3_MODE')) die ('Access denied.');
  * Add-ons for pages
  */
 $tempColumns = array(
-	'tx_adxwebmastertools_google_verification_id' => array(		
-		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_verification_id',
+	'tx_adxwebmastertools_verification_google_id' => array(		
+		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_verification_google_id',
 		'exclude' => 1,		
 		'config' => array(
 			'type' => 'input',
 		),
 	),
-	'tx_adxwebmastertools_yahoo_verification_id' => array(		
-		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_yahoo_verification_id',
+	'tx_adxwebmastertools_verification_yahoo_id' => array(		
+		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_verification_yahoo_id',
 		'exclude' => 1,		
 		'config' => array(
 			'type' => 'input',
