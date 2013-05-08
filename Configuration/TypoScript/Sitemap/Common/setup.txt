@@ -1,0 +1,190 @@
+
+lib.adxwebmastertools.parseUrlTag.pages = COA
+lib.adxwebmastertools.parseUrlTag.pages {
+
+	10 = LOAD_REGISTER
+	10.location.cObject = TEXT
+	10.location.cObject.typolink {
+
+		parameter.data = field: uid
+
+		additionalParams = &L={field: sys_language_uid}
+		additionalParams.insertData = 1
+
+		returnLast = url
+		forceAbsoluteUrl = 1
+		linkAccessRestrictedPages = 1
+	}
+
+	20 = COA
+	20 {
+
+		if.isTrue.data = register: location
+
+		wrap = <url> | </url>
+
+		10 = TEXT
+		10.char = 10
+		11 = TEXT
+		11.char = 9
+
+		20 = TEXT
+		20 {
+			wrap = <loc> | </loc>
+			data = register: location
+		}
+
+		30 = TEXT
+		30.char = 10
+		31 = TEXT
+		31.char = 9
+
+		40 = TEXT
+		40 {
+			wrap = <lastmod> | </lastmod>
+			data = field: SYS_LASTCHANGED // field: crdate
+			date = o-m-d\TH:i:sP
+		}
+
+		50 = COA
+		50 {
+			stdWrap.if.isTrue = {plugin.tx_adxwebmastertools.sitemap.priority}
+			stdWrap.if.isTrue.override.field = priority
+
+			10 = TEXT
+			10.char = 10
+			11 = TEXT
+			11.char = 9
+
+			20 = TEXT
+			20 {
+				wrap = <priority> | </priority>
+				value = {plugin.tx_adxwebmastertools.sitemap.priority}
+				override.field = priority
+			}
+		}
+
+		60 = COA
+		60 {
+			stdWrap.if.isTrue = {plugin.tx_adxwebmastertools.sitemap.changefrequence}
+			stdWrap.if.isTrue.override.field = changefrequence
+
+			10 = TEXT
+			10.char = 10
+			11 = TEXT
+			11.char = 9
+
+			20 = TEXT
+			20 {
+				wrap = <changefreq> | </changefreq>
+				value = {plugin.tx_adxwebmastertools.sitemap.changefrequence}
+				override.field = changefrequence
+			}
+		}
+
+		70 = TEXT
+		70.char = 10
+	}
+
+	30 = TEXT
+	30.char = 10
+}
+
+
+pageTxAdxWebmasterToolsSitemap = PAGE
+pageTxAdxWebmasterToolsSitemap {
+
+	typeNum = 1341932156
+
+	config {
+		admPanel = 0
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:text/xml
+		xhtml_cleaning = 0
+	}
+
+	10 = TEXT
+	10.value = <?xml version="1.0" encoding="UTF-8"?>
+
+	20 = TEXT
+	20.char = 10
+
+	30 = COA
+	30 {
+		wrap = <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"> | </urlset>
+
+		10 = TEXT
+		10.char = 10
+
+		# Get root page.
+		/*
+		SELECT pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
+		FROM pages
+		WHERE pages.uid = 97 AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1
+		*/
+		20 = CONTENT
+		20 {
+
+			table = pages
+			select {
+
+				pidInList = 0
+				uidInList = {$skinConfiguration.rootUid}
+
+				selectFields = pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
+				andWhere = pages.doktype NOT IN( 4, 6, 254, 255, 199 ) AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.pages
+		}
+
+		# Get root page language overlay.
+		/*
+		SELECT pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
+		FROM pages
+		LEFT JOIN pages_language_overlay ON ( pages.uid = pages_language_overlay.pid )
+		WHERE pages.uid = 97 AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1 AND pages_language_overlay.uid != 0
+		*/
+		30 = CONTENT
+		30 {
+
+			table = pages
+			select {
+
+				pidInList = 0
+				uidInList = {$skinConfiguration.rootUid}
+
+				selectFields = pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
+				leftjoin = pages_language_overlay ON ( pages.uid = pages_language_overlay.pid )
+				andWhere = pages.doktype NOT IN( 4, 6, 254, 255, 199 ) AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1 AND pages_language_overlay.deleted = 0 AND pages_language_overlay.hidden = 0 AND pages_language_overlay.uid != 0
+				orderBy = sys_language_uid
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.pages
+		}
+
+		# Get pages recursively.
+		40 < .20
+		40 {
+			select {
+				pidInList = {$skinConfiguration.rootUid}
+				uidInList >
+				recursive = 99
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.pages
+		}
+
+		# Get pages recursively.
+		50 < .30
+		50 {
+			select {
+				pidInList = {$skinConfiguration.rootUid}
+				uidInList >
+				recursive = 99
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.pages
+		}
+	}
+}

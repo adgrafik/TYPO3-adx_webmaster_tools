@@ -1,0 +1,8 @@
+
+/**
+ * plugin.tx_adxwebmastertools.sitemap
+ */
+plugin.tx_adxwebmastertools.sitemap {
+	priority = 
+	changefrequence = 
+}

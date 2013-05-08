@@ -1,0 +1,28 @@
+
+page {
+
+	headerData.1367313463 = COA
+	headerData.1367313463 {
+
+		1 = TEXT
+		1.char = 10
+
+		10 = TEXT
+		10 {
+			data = TSFE: id
+			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_google_verification_id}
+			stdWrap.insertData = 1
+			required = 1
+			wrap = <meta name="google-site-verification" content=" | " />
+		}
+
+		11 = TEXT
+		11.char = 10
+
+		20 < .10
+		20 {
+			stdWrap.wrap = {DB: pages: | :tx_adxwebmastertools_yahoo_verification_id}
+			wrap = <meta name="y_key" content=" | " />
+		}
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>CSH</type>
+		<csh_table>pages</csh_table>
+		<labelContext type="array"></labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_adxwebmastertools_xml_sitemap_priority.description">Defines the priority for XML-Sitemaps.</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_linker.description">Mehrere Domains der obersten Ebene.</label>
+			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode.description">Ich verwende derzeit die Urchin-Software zum Tracking.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_adxwebmastertools_xml_sitemap_priority.description">Definiert die Priorität für XML-Sitemaps.</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_linker.description">Mehrere Domains der obersten Ebene.</label>
+			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode.description">Ich verwende derzeit die Urchin-Software zum Tracking.</label>
+		</languageKey>
+	</data>
+</T3locallang>

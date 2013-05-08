@@ -1,0 +1,33 @@
+
+page {
+
+	# Insert Google Analytics Code
+	jsFooterInline.1367313463 = COA
+	jsFooterInline.1367313463 {
+
+		if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_account_id, slide
+
+		10 = TEXT
+		10.value = var _gaq = _gaq || [];
+
+		20 = TEXT
+		20.data = levelfield: -1, tx_adxwebmastertools_google_analytics_account_id, slide
+		20.wrap = _gaq.push(['_setAccount', ' | ']);
+
+		30 = TEXT
+		30.data = levelfield: -1, tx_adxwebmastertools_google_analytics_domain_name, slide
+		30.required = 1
+		30.wrap = _gaq.push(['_setDomainName', ' | ']);
+
+		40 = TEXT
+		40.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_allow_linker, slide
+		40.value = _gaq.push(['_setAllowLinker', true]);
+
+		40 = TEXT
+		40.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_local_remote_server_mode, slide
+		40.value = _gaq.push(['_setLocalRemoteServerMode']);
+
+		50 = TEXT
+		50.value = _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+	}
+}

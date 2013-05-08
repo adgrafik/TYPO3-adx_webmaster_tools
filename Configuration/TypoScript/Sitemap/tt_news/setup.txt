@@ -1,0 +1,50 @@
+
+lib.adxwebmastertools.parseUrlTag.tt_news < lib.adxwebmastertools.parseUrlTag.pages
+lib.adxwebmastertools.parseUrlTag.tt_news {
+
+	10.location.cObject.typolink {
+
+		parameter = {$plugin.tt_news.singlePid}
+		parameter.override.data = field: single_pid
+
+		additionalParams = &tx_ttnews[tt_news]={field: uid}&L={field: sys_language_uid}
+		additionalParams.insertData = 1
+
+		returnLast = url
+		forceAbsoluteUrl = 1
+		linkAccessRestrictedPages = 1
+	}
+}
+
+pageTxAdxWebmasterToolsSitemap {
+
+	30 {
+
+		# Get news items.
+		/*
+		SELECT tt_news.uid, '' AS priority, '' AS changefrequence, tt_news.datetime AS SYS_LASTCHANGED, tt_news.crdate, tt_news.sys_language_uid, tt_news_cat.single_pid
+		FROM tt_news
+		LEFT JOIN tt_news_cat_mm ON ( tt_news.uid = tt_news_cat_mm.uid_local ) 
+		LEFT JOIN tt_news_cat ON ( tt_news_cat_mm.uid_foreign = tt_news_cat.uid ) 
+		WHERE tt_news.pid = 60
+		GROUP BY tt_news.uid
+		*/
+		60 = CONTENT
+		60 {
+
+			table = tt_news
+			select {
+
+				pidInList = {$plugin.tt_news.pid_list}
+
+				selectFields = tt_news.uid, '' AS priority, '' AS changefrequence, tt_news.datetime AS SYS_LASTCHANGED, tt_news.crdate, tt_news.sys_language_uid, tt_news_cat.single_pid
+				leftjoin = tt_news_cat_mm ON ( tt_news.uid = tt_news_cat_mm.uid_local ) LEFT JOIN tt_news_cat ON ( tt_news_cat_mm.uid_foreign = tt_news_cat.uid )
+				andWhere = tt_news_cat.hidden = 0 AND tt_news_cat.deleted = 0
+				groupBy = tt_news.uid
+				orderBy = tt_news.sys_language_uid, tt_news_cat.uid
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.tt_news
+		}
+	}
+}

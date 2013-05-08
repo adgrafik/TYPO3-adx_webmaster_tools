@@ -1,0 +1,11 @@
+
+/**
+ * plugin.tx_adxwebmastertools.sitemap
+ */
+plugin.tx_adxwebmastertools.RSS2.tt_news {
+	language = 
+#	imageFile = {getIndpEnv: TYPO3_SITE_URL}
+	imageFile = 
+	siteTitle = levelfield: 0, subtitle // leveltitle: 0
+	description = levelfield: -1, description, slide // levelfield: -1, abstract, slide // leveltitle: -1, slide
+}

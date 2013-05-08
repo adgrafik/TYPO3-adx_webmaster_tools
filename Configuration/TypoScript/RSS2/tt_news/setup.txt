@@ -1,0 +1,298 @@
+
+/**
+ * pageXMLRSS2News
+ */
+pageXMLRSS2News = PAGE
+pageXMLRSS2News {
+
+	typeNum = 1341932124
+
+	config {
+		admPanel = 0
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-Type: application/rss+xml; charset=utf-8
+		xhtml_cleaning = 0
+	}
+}
+
+temp.parseUrlTagNews = COA
+temp.parseUrlTagNews {
+
+	stdWrap.fieldRequired = uid
+
+	10 = COA
+	10 {
+		wrap = <item> | </item>
+
+		5 = TEXT
+		5.char = 10
+		6 = TEXT
+		6.char = 9
+
+		10 = TEXT
+		10 {
+			wrap = <title> | </title>
+			field = title
+			htmlSpecialChars = 1
+		}
+
+		15 < .5
+		16 < .6
+
+		20 = TEXT
+		20 {
+			wrap = <pubDate> | </pubDate>
+			field = datetime // crdate
+			date = r
+			required = 1
+		}
+
+		25 < .5
+		26 < .6
+
+		30 = TEXT
+		30 {
+			wrap = <link> | </link>
+
+			typolink {
+				parameter = {$plugin.tt_news.singlePid}
+				parameter.override.data = field: category_single_pid
+				additionalParams = &tx_ttnews[tt_news]={field: uid}&L={field: sys_language_uid}
+				additionalParams.insertData = 1
+				returnLast = url
+				forceAbsoluteUrl = 1
+				linkAccessRestrictedPages = 1
+			}
+		}
+
+		35 < .5
+		36 < .6
+
+		40 = TEXT
+		40 {
+			wrap = <description><![CDATA[ | ]]></description>
+			field = short
+			required = 1
+			htmlSpecialChars = 1
+			stripHtml = 1
+		}
+
+		45 < .5
+		46 < .6
+
+		50 = TEXT
+		50 {
+			wrap = <author> | </author>
+			field = author_email
+			required = 1
+		}
+
+		55 < .5
+		56 < .6
+
+		60 = TEXT
+		60 {
+			field = categories
+			required = 1
+
+			split {
+				token = #CAT#
+				cObjNum = 1
+
+				1.current = 1
+				1.wrap = <category> | </category>
+			}
+		}
+
+		65 < .5
+		66 < .6
+
+		70 = TEXT
+		70 {
+			field = news_files
+			required = 1
+
+			split {
+				token = ,
+				cObjNum = 1
+
+				1.10 = IMG_RESOURCE
+				1.10 {
+					file.import = uploads/media/
+					file.import.current = 1
+					file.import.listNum = 0
+
+					stdWrap.dataWrap = <enclosure url="{getIndpEnv: TYPO3_SITE_URL} | " length="{TSFE: lastImgResourceInfo|origFile_fileSize}" type="{TSFE: lastImgResourceInfo|origFile_mimeType}" />
+				}
+			}
+		}
+
+		75 < .5
+		76 < .6
+	}
+
+	20 = TEXT
+	20.char = 10
+}
+
+pageXMLRSS2News.10 = COA
+pageXMLRSS2News.10 {
+
+	10 = TEXT
+	10.value = <?xml version="1.0" encoding="UTF-8"?>
+
+	20 = TEXT
+	20.char = 10
+
+	30 = COA
+	30 {
+		wrap = <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel> | </channel></rss>
+
+		5 = TEXT
+		5.char = 10
+		6 = TEXT
+		6.char = 9
+
+		10 = TEXT
+		10 {
+			data = {$plugin.tx_adxwebmastertools.RSS2.tt_news.siteTitle}
+			htmlSpecialChars = 1
+			required = 1
+			wrap = <title> | </title>
+		}
+
+		15 < .5
+		16 < .6
+
+		20 = TEXT
+		20 {
+			value = {getIndpEnv: TYPO3_SITE_URL}
+			required = 1
+			wrap = <link> | </link>
+		}
+
+		25 < .5
+		26 < .6
+
+		30 = TEXT
+		30 {
+			data = {$plugin.tx_adxwebmastertools.RSS2.tt_news.description}
+			required = 1
+			htmlSpecialChars = 1
+			wrap = <description> | </description>
+		}
+
+		35 < .5
+		36 < .6
+
+		40 = TEXT
+		40 {
+			value = {$plugin.tx_adxwebmastertools.RSS2.tt_news.language}
+			required = 1
+			wrap = <language> | </language>
+		}
+
+		45 < .5
+		46 < .6
+
+		50 = COA
+		50 {
+
+			wrap = <image> | </image>
+
+			5 < pageXMLRSS2News.10.30.5
+			6 < pageXMLRSS2News.10.30.6
+			10 < pageXMLRSS2News.10.30.10
+			15 < .5
+			16 < .6
+
+			20 = IMG_RESOURCE
+			20 {
+				file = {plugin.tx_adxwebmastertools.RSS2.tt_news.imageFile}
+				required = 1
+				wrap = <url> | </url>
+				insertData = 1
+			}
+
+			25 < .5
+			26 < .6
+
+			30 = TEXT
+			30 {
+				data = TSFE: lastImgResourceInfo|0
+				wrap = <width> | </width>
+			}
+
+			35 < .5
+			36 < .6
+
+			40 = TEXT
+			40 {
+				data = TSFE: lastImgResourceInfo|1
+				wrap = <height> | </height>
+			}
+
+			45 < .5
+			46 < .6
+			50 < pageXMLRSS2News.10.30.20
+			55 < .5
+			56 < .6
+			60 < pageXMLRSS2News.10.30.30
+			65 < .5
+			66 < .6
+		}
+
+		55 < .5
+		56 < .6
+
+		60 = CONTENT
+		60 {
+			wrap = <lastBuildDate> | </lastBuildDate>
+
+			table = tt_news
+
+			select {
+
+				pidInList = {$plugin.tt_news.pid_list}
+
+				selectFields = tt_news.datetime, tt_news.crdate
+				leftjoin = tt_news_cat_mm ON ( tt_news.uid = tt_news_cat_mm.uid_local ) LEFT JOIN tt_news_cat ON ( tt_news_cat_mm.uid_foreign = tt_news_cat.uid AND tt_news_cat.hidden = 0 AND tt_news_cat.deleted = 0 )
+				groupBy = tt_news.uid
+				orderBy = tt_news.datetime DESC, tt_news.crdate DESC
+				max = 1
+			}
+
+			renderObj = TEXT
+			renderObj.field = datetime // crdate
+			renderObj.date = r
+		}
+
+		65 < .5
+
+		# Get news items.
+		/*
+		SELECT tt_news.uid, tt_news_cat.deleted, tt_news.title, tt_news.short, tt_news_cat.single_pid AS category_single_pid, GROUP_CONCAT( tt_news_cat.title ORDER BY tt_news_cat.sorting SEPARATOR '#' ) AS categories
+		FROM tt_news
+		LEFT JOIN tt_news_cat_mm ON ( tt_news.uid = tt_news_cat_mm.uid_local ) 
+		LEFT JOIN tt_news_cat ON ( tt_news_cat_mm.uid_foreign = tt_news_cat.uid AND tt_news_cat.hidden = 0 AND tt_news_cat.deleted = 0 ) 
+		WHERE tt_news.pid = 58
+		GROUP BY tt_news.uid
+		ORDER BY tt_news.datetime DESC, tt_news.crdate DESC
+		*/
+		80 = CONTENT
+		80 {
+			table = tt_news
+			select {
+				pidInList = {$plugin.tt_news.pid_list}
+
+				selectFields = tt_news.uid, tt_news.title, tt_news.datetime, tt_news.crdate, tt_news.sys_language_uid, tt_news.short, tt_news.bodytext, tt_news.news_files, tt_news_cat.single_pid AS category_single_pid, GROUP_CONCAT( tt_news_cat.title ORDER BY tt_news_cat.sorting SEPARATOR '#CAT#' ) AS categories
+				leftjoin = tt_news_cat_mm ON ( tt_news.uid = tt_news_cat_mm.uid_local ) LEFT JOIN tt_news_cat ON ( tt_news_cat_mm.uid_foreign = tt_news_cat.uid AND tt_news_cat.hidden = 0 AND tt_news_cat.deleted = 0 )
+#				andWhere = tt_news_cat.hidden = 0 AND tt_news_cat.deleted = 0
+				groupBy = tt_news.uid
+				orderBy = tt_news.datetime DESC, tt_news.crdate DESC
+			}
+
+			renderObj < temp.parseUrlTagNews
+		}
+	}
+}

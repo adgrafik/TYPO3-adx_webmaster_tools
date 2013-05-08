@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_adxwebmastertools_tools.palette">Webmaster tools</label>
+			<label index="tx_adxwebmastertools_tools_google_verification_id">Google verification ID</label>
+			<label index="tx_adxwebmastertools_tools_yahoo_verification_id">Yahoo verification ID</label>
+			<label index="tx_adxwebmastertools_google_analytics.palette">Google Analytics</label>
+			<label index="tx_adxwebmastertools_google_analytics_account_id">Account ID</label>
+			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain Name</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
+			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
+			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_enabled">Enable</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_priority">Priority</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_priority.default">Default</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence">Changefrequence</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.default">Default</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.always">always</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.hourly">hourly</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.daily">daily</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.weekly">weekly</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.monthly">monthly</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.yearly">yearly</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.never">never</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_adxwebmastertools_tools.palette">Webmaster tools</label>
+			<label index="tx_adxwebmastertools_tools_google_verification_id">Google verification ID</label>
+			<label index="tx_adxwebmastertools_tools_yahoo_verification_id">Yahoo verification ID</label>
+			<label index="tx_adxwebmastertools_google_analytics.palette">Google Analytics</label>
+			<label index="tx_adxwebmastertools_google_analytics_account_id">Account-ID</label>
+			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain-Name</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
+			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
+			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_enabled">Aktivieren</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_priority">Priorität</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_priority.default">Standard</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence">Änderungsfrequenz</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.default">Standard</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.always">immer</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.hourly">stündlich</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.daily">täglich</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.weekly">wöchentlich</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.monthly">monatlich</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.yearly">jährlich</label>
+			<label index="tx_adxwebmastertools_xml_sitemap_changefrequence.never">nie</label>
+		</languageKey>
+	</data>
+</T3locallang>
