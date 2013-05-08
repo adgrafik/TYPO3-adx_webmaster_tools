@@ -3,8 +3,8 @@
 # Table structure for table 'pages'
 #
 CREATE TABLE pages (
-	tx_adxwebmastertools_google_verification_id varchar(64) NOT NULL DEFAULT '',
-	tx_adxwebmastertools_yahoo_verification_id varchar(64) NOT NULL DEFAULT '',
+	tx_adxwebmastertools_verification_google_id varchar(64) NOT NULL DEFAULT '',
+	tx_adxwebmastertools_verification_yahoo_id varchar(64) NOT NULL DEFAULT '',
 	tx_adxwebmastertools_google_analytics_account_id varchar(32) NOT NULL DEFAULT '',
 	tx_adxwebmastertools_google_analytics_domain_name varchar(255) NOT NULL DEFAULT '',
 	tx_adxwebmastertools_google_analytics_allow_linker tinyint(4) DEFAULT '0' NOT NULL,

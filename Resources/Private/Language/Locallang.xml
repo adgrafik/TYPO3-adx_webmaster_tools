@@ -2,9 +2,9 @@
 <T3locallang>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_adxwebmastertools_tools.palette">Webmaster tools</label>
-			<label index="tx_adxwebmastertools_tools_google_verification_id">Google verification ID</label>
-			<label index="tx_adxwebmastertools_tools_yahoo_verification_id">Yahoo verification ID</label>
+			<label index="tx_adxwebmastertools_verification.palette">Webmaster tools</label>
+			<label index="tx_adxwebmastertools_verification_google_id">Google verification ID</label>
+			<label index="tx_adxwebmastertools_verification_yahoo_id">Yahoo verification ID</label>
 			<label index="tx_adxwebmastertools_google_analytics.palette">Google Analytics</label>
 			<label index="tx_adxwebmastertools_google_analytics_account_id">Account ID</label>
 			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain Name</label>

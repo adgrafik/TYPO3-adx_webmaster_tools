@@ -109,7 +109,7 @@ $tempColumns = array(
 );
 
 $TCA['pages']['palettes']['tx_adxwebmastertools_verification'] = array(
-	'showitem' => 'tx_adxwebmastertools_google_verification_id, --linebreak--, tx_adxwebmastertools_yahoo_verification_id',
+	'showitem' => 'tx_adxwebmastertools_verification_google_id, --linebreak--, tx_adxwebmastertools_verification_yahoo_id',
 	'canNotCollapse' => 1,
 );
 
