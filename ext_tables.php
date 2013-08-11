@@ -45,6 +45,18 @@ $tempColumns = array(
 			),
 		),
 	),
+	'tx_adxwebmastertools_google_analytics_allow_hash' => array(		
+		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_analytics_allow_hash',
+		'exclude' => 1,		
+		'config' => array(
+			'type' => 'check',
+			'items' => array(
+				'1'	=> array(
+					'0' => 'LLL:EXT:lang/locallang_core.xml:labels.enabled',
+				),
+			),
+		),
+	),
 	'tx_adxwebmastertools_google_analytics_local_remote_server_mode' => array(		
 		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_analytics_local_remote_server_mode',
 		'exclude' => 1,		
@@ -119,7 +131,7 @@ $TCA['pages']['palettes']['tx_adxwebmastertools_xml_sitemap'] = array(
 );
 
 $TCA['pages']['palettes']['tx_adxwebmastertools_google_analytics'] = array(
-	'showitem' => 'tx_adxwebmastertools_google_analytics_account_id, --linebreak--, tx_adxwebmastertools_google_analytics_domain_name, --linebreak--, tx_adxwebmastertools_google_analytics_allow_linker, tx_adxwebmastertools_google_analytics_local_remote_server_mode',
+	'showitem' => 'tx_adxwebmastertools_google_analytics_account_id, --linebreak--, tx_adxwebmastertools_google_analytics_domain_name, --linebreak--, tx_adxwebmastertools_google_analytics_allow_linker, tx_adxwebmastertools_google_analytics_allow_hash, tx_adxwebmastertools_google_analytics_local_remote_server_mode',
 	'canNotCollapse' => 1,
 );
 
