@@ -10,6 +10,7 @@ lib.adxwebmastertools.parseUrlTag.pages {
 
 		additionalParams = &L={field: sys_language_uid}
 		additionalParams.insertData = 1
+		additionalParams.if.isTrue.field = sys_language_uid
 
 		returnLast = url
 		forceAbsoluteUrl = 1
@@ -48,7 +49,7 @@ lib.adxwebmastertools.parseUrlTag.pages {
 
 		50 = COA
 		50 {
-			stdWrap.if.isTrue = {plugin.tx_adxwebmastertools.sitemap.priority}
+			stdWrap.if.isTrue = {$plugin.tx_adxwebmastertools.sitemap.priority}
 			stdWrap.if.isTrue.override.field = priority
 
 			10 = TEXT
@@ -59,14 +60,14 @@ lib.adxwebmastertools.parseUrlTag.pages {
 			20 = TEXT
 			20 {
 				wrap = <priority> | </priority>
-				value = {plugin.tx_adxwebmastertools.sitemap.priority}
+				value = {$plugin.tx_adxwebmastertools.sitemap.priority}
 				override.field = priority
 			}
 		}
 
 		60 = COA
 		60 {
-			stdWrap.if.isTrue = {plugin.tx_adxwebmastertools.sitemap.changefrequence}
+			stdWrap.if.isTrue = {$plugin.tx_adxwebmastertools.sitemap.changefrequence}
 			stdWrap.if.isTrue.override.field = changefrequence
 
 			10 = TEXT
@@ -77,7 +78,7 @@ lib.adxwebmastertools.parseUrlTag.pages {
 			20 = TEXT
 			20 {
 				wrap = <changefreq> | </changefreq>
-				value = {plugin.tx_adxwebmastertools.sitemap.changefrequence}
+				value = {$plugin.tx_adxwebmastertools.sitemap.changefrequence}
 				override.field = changefrequence
 			}
 		}
@@ -118,7 +119,7 @@ pageTxAdxWebmasterToolsSitemap {
 
 		# Get root page.
 		/*
-		SELECT pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
+		SELECT pages.uid, pages.tx_adxwebmastertools_xml_sitemap_priority AS priority, pages.tx_adxwebmastertools_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
 		FROM pages
 		WHERE pages.uid = 97 AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1
 		*/
@@ -131,7 +132,7 @@ pageTxAdxWebmasterToolsSitemap {
 				pidInList = 0
 				uidInList = {$skinConfiguration.rootUid}
 
-				selectFields = pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
+				selectFields = pages.uid, pages.tx_adxwebmastertools_xml_sitemap_priority AS priority, pages.tx_adxwebmastertools_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, 0 AS sys_language_uid
 				andWhere = pages.doktype NOT IN( 4, 6, 254, 255, 199 ) AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1
 			}
 
@@ -140,7 +141,7 @@ pageTxAdxWebmasterToolsSitemap {
 
 		# Get root page language overlay.
 		/*
-		SELECT pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
+		SELECT pages.uid, pages.tx_adxwebmastertools_xml_sitemap_priority AS priority, pages.tx_adxwebmastertools_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
 		FROM pages
 		LEFT JOIN pages_language_overlay ON ( pages.uid = pages_language_overlay.pid )
 		WHERE pages.uid = 97 AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1 AND pages_language_overlay.uid != 0
@@ -154,7 +155,7 @@ pageTxAdxWebmasterToolsSitemap {
 				pidInList = 0
 				uidInList = {$skinConfiguration.rootUid}
 
-				selectFields = pages.uid, pages.tx_adwebframework_xml_sitemap_priority AS priority, pages.tx_adwebframework_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
+				selectFields = pages.uid, pages.tx_adxwebmastertools_xml_sitemap_priority AS priority, pages.tx_adxwebmastertools_xml_sitemap_changefrequence AS changefrequence, pages.SYS_LASTCHANGED, pages.crdate, IF( pages_language_overlay.sys_language_uid IS NULL, 0, pages_language_overlay.sys_language_uid ) AS sys_language_uid
 				leftjoin = pages_language_overlay ON ( pages.uid = pages_language_overlay.pid )
 				andWhere = pages.doktype NOT IN( 4, 6, 254, 255, 199 ) AND pages.tx_adxwebmastertools_xml_sitemap_enabled = 1 AND pages_language_overlay.deleted = 0 AND pages_language_overlay.hidden = 0 AND pages_language_overlay.uid != 0
 				orderBy = sys_language_uid
