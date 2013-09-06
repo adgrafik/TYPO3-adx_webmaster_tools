@@ -1,0 +1,118 @@
+
+page.headerData.1367313464 = COA
+page.headerData.1367313464 {
+
+	# Standard metadata names
+	# description
+	10 = TEXT
+	10 {
+
+		data = {$plugin.tx_adxwebmastertools.meta.description}
+
+		override {
+			data = GP: tx_ttnews|tt_news
+			required = 1
+			wrap = {DB: tt_news: | :short}
+			insertData = 1
+		}
+
+		required = 1
+		htmlSpecialChars = 1
+
+		wrap = <meta name="description" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# keywords < description
+	11 < .10
+	11 {
+		data = {$plugin.tx_adxwebmastertools.meta.keywords}
+		override.wrap = {DB: tt_news: | :keywords}
+		wrap = <meta name="keywords" content=" | " />
+		case = lower
+	}
+
+	# author < description
+	12 < .10
+	12 {
+		data = {$plugin.tx_adxwebmastertools.meta.author}
+		override.wrap = {DB: tt_news: | :author}
+		wrap = <meta name="author" content=" | " />
+	}
+
+	# robots
+	30 = TEXT
+	30 {
+		value = {$plugin.tx_adxwebmastertools.meta.robots}
+		override = noindex, nofollow
+		override.if.isTrue.field = no_search
+		required = 1
+		wrap = <meta name="robots" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# geo directives
+	# geo.ICBM
+	20 = TEXT
+	20 {
+		value = {$plugin.tx_adxwebmastertools.meta.geo.position}
+		required = 1
+		wrap = <meta name="ICBM" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# geo.position
+	21 = TEXT
+	21 {
+		value = {$plugin.tx_adxwebmastertools.meta.geo.position}
+		required = 1
+		replacement.10.search = ,
+		replacement.10.replace = ;
+		wrap = <meta name="geo.position" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# geo.placename
+	22 = TEXT
+	22 {
+		value = {$plugin.tx_adxwebmastertools.meta.geo.placename}
+		required = 1
+		htmlSpecialChars = 1
+		wrap = <meta name="geo.placename" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# geo.region
+	22 = TEXT
+	23 {
+		value = {$plugin.tx_adxwebmastertools.meta.geo.region}
+		required = 1
+		htmlSpecialChars = 1
+		wrap = <meta name="geo.region" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+
+	# Pragma directives
+	# expires < keywords
+	42 = TEXT
+	42 {
+		value = {$plugin.tx_adxwebmastertools.meta.expires}
+		required = 1
+		wrap = <meta http-equiv="expires" content=" | " />
+
+		prepend = TEXT
+		prepend.char = 10
+	}
+}

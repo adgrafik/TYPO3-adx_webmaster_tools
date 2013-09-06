@@ -1,0 +1,21 @@
+
+/**
+ * plugin.tx_adxwebmastertools.sitemap
+ */
+plugin.tx_adxwebmastertools.meta {
+
+	# Standard metadata names
+	description = levelfield: -1, description, slide // levelfield: -1, abstract, slide // leveltitle: -1, slide
+	keywords = levelfield: -1, keywords, slide
+	author = levelfield: -1, author, slide
+
+	# Geo directives. Seperate lat and lng with a comma!
+	geo.position = 
+	geo.placename = 
+	geo.region = 
+
+	# Pragma directives
+	robots = index, follow, noodp
+	revisitAfter = 7 days
+	expires = 
+}
