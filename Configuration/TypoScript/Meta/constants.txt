@@ -1,7 +1,4 @@
 
-/**
- * plugin.tx_adxwebmastertools.sitemap
- */
 plugin.tx_adxwebmastertools.meta {
 
 	# Standard metadata names

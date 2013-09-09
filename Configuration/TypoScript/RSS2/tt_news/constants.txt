@@ -1,7 +1,4 @@
 
-/**
- * plugin.tx_adxwebmastertools.sitemap
- */
 plugin.tx_adxwebmastertools.RSS2.tt_news {
 	language = 
 #	imageFile = {getIndpEnv: TYPO3_SITE_URL}
