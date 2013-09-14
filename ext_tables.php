@@ -147,6 +147,7 @@ t3lib_extMgm::addToAllTCAtypes('pages',
 t3lib_extMgm::addLLrefForTCAdescr('pages', 'EXT:' . $_EXTKEY . '/Resources/Private/Language/LocallangCSH.xml');
 
 // Add static TypoScript files
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Meta/', 'ad: Webmaster Tools meta-tags');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Verification/', 'ad: Webmaster Tools verification');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/GoogleAnalytics/', 'ad: Webmaster Tools Google Analytics');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/Common/', 'ad: Webmaster Tools XML sitemap common');
