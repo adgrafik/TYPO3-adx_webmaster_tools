@@ -64,7 +64,7 @@ $tempColumns = array(
 			'type' => 'check',
 			'items' => array(
 				'1'	=> array(
-					'0' => 'LLL:EXT:lang/locallang_core.xml:labels.enabled',
+					'0' => 'LLL:EXT:cms/locallang_ttc.xml:hidden.I.0',
 				),
 			),
 		),
