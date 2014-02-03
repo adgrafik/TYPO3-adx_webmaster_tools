@@ -57,8 +57,8 @@ $tempColumns = array(
 			),
 		),
 	),
-	'tx_adxwebmastertools_xml_sitemap_enabled' => array(		
-		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_xml_sitemap_enabled',
+	'tx_adxwebmastertools_xml_sitemap_disable' => array(		
+		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_xml_sitemap_disable',
 		'exclude' => 1,		
 		'config' => array(
 			'type' => 'check',
@@ -114,7 +114,7 @@ $TCA['pages']['palettes']['tx_adxwebmastertools_verification'] = array(
 );
 
 $TCA['pages']['palettes']['tx_adxwebmastertools_xml_sitemap'] = array(
-	'showitem' => 'tx_adxwebmastertools_xml_sitemap_enabled, tx_adxwebmastertools_xml_sitemap_priority, tx_adxwebmastertools_xml_sitemap_changefrequence',
+	'showitem' => 'tx_adxwebmastertools_xml_sitemap_disable, tx_adxwebmastertools_xml_sitemap_priority, tx_adxwebmastertools_xml_sitemap_changefrequence',
 	'canNotCollapse' => 1,
 );
 
