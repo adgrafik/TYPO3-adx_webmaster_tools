@@ -30,12 +30,14 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Arno Dudek',
 	'author_email' => 'webmaster@adgrafik.at',
 	'author_company' => 'ad:grafik',
-	'CGLcompliance' => '',
-	'CGLcompliance_note' => '',
+	'CGLcompliance' => NULL,
+	'CGLcompliance_note' => NULL,
 	'constraints' => array(
 		'depends' => array(
-			'php' => '5.2.0-0.0.0',
-			'typo3' => '4.6.0-0.0.0',
+			'cms' => '',
+			'version' => '',
+			'php' => '5.3.3-0.0.0',
+			'typo3' => '4.6.0-6.1.99',
 		),
 		'conflicts' => array(
 		),
