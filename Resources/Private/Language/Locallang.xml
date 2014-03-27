@@ -8,6 +8,7 @@
 			<label index="tx_adxwebmastertools_google_analytics.palette">Google Analytics</label>
 			<label index="tx_adxwebmastertools_google_analytics_account_id">Account ID</label>
 			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain Name</label>
+			<label index="tx_adxwebmastertools_google_analytics_anonymize_ip">Anonymized IP</label>
 			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
 			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
 			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>
@@ -31,6 +32,7 @@
 			<label index="tx_adxwebmastertools_google_analytics.palette">Google Analytics</label>
 			<label index="tx_adxwebmastertools_google_analytics_account_id">Account-ID</label>
 			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain-Name</label>
+            <label index="tx_adxwebmastertools_google_analytics_anonymize_ip">Anonymisierte IP</label>
 			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
 			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
 			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>

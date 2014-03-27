@@ -19,6 +19,10 @@ page {
 		30.required = 1
 		30.wrap = _gaq.push(['_setDomainName', ' | ']);
 
+		35 = TEXT
+		35.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_anonymize_ip, slide
+		35.value = _gaq.push(['_gat._anonymizeIp']);
+
 		40 = TEXT
 		40.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_allow_linker, slide
 		40.value = _gaq.push(['_setAllowLinker', true]);
