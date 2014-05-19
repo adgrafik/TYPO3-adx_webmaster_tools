@@ -27,11 +27,15 @@ page {
 		40.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_allow_linker, slide
 		40.value = _gaq.push(['_setAllowLinker', true]);
 
-		40 = TEXT
-		40.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_local_remote_server_mode, slide
-		40.value = _gaq.push(['_setLocalRemoteServerMode']);
-
 		50 = TEXT
-		50.value = _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+		50.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_allow_hash, slide
+		50.value = _gaq.push(['_setAllowHash', true]);
+
+		60 = TEXT
+		60.if.isTrue.data = levelfield: -1, tx_adxwebmastertools_google_analytics_local_remote_server_mode, slide
+		60.value = _gaq.push(['_setLocalRemoteServerMode']);
+
+		70 = TEXT
+		70.value = _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
 	}
 }

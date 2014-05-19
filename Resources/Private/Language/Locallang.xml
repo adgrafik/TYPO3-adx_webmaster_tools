@@ -10,6 +10,7 @@
 			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain Name</label>
 			<label index="tx_adxwebmastertools_google_analytics_anonymize_ip">Anonymized IP</label>
 			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_hash">Allow Hash</label>
 			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
 			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>
 			<label index="tx_adxwebmastertools_xml_sitemap_disable">Disable</label>
@@ -34,6 +35,7 @@
 			<label index="tx_adxwebmastertools_google_analytics_domain_name">Domain-Name</label>
             <label index="tx_adxwebmastertools_google_analytics_anonymize_ip">Anonymisierte IP</label>
 			<label index="tx_adxwebmastertools_google_analytics_allow_linker">Allow Linker</label>
+			<label index="tx_adxwebmastertools_google_analytics_allow_hash">Allow Hash</label>
 			<label index="tx_adxwebmastertools_google_analytics_local_remote_server_mode">Local Remote Server Mode</label>
 			<label index="tx_adxwebmastertools_xml_sitemap.palette">XML-Sitemap</label>
 			<label index="tx_adxwebmastertools_xml_sitemap_disable">Deaktivieren</label>

@@ -57,6 +57,18 @@ $tempColumns = array(
 			),
 		),
 	),
+	'tx_adxwebmastertools_google_analytics_allow_hash' => array(		
+		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_analytics_allow_hash',
+		'exclude' => 1,		
+		'config' => array(
+			'type' => 'check',
+			'items' => array(
+				'1'	=> array(
+					'0' => 'LLL:EXT:lang/locallang_core.xml:labels.enabled',
+				),
+			),
+		),
+	),
 	'tx_adxwebmastertools_google_analytics_local_remote_server_mode' => array(		
 		'label' => 'LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_analytics_local_remote_server_mode',
 		'exclude' => 1,		

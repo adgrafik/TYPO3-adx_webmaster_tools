@@ -119,9 +119,6 @@ temp.parseUrlTagNews {
 	20.char = 10
 }
 
-/**
- * pageXMLRSS2News
- */
 pageTxAdxWebmasterToolsXMLRSS2News = PAGE
 pageTxAdxWebmasterToolsXMLRSS2News {
 
