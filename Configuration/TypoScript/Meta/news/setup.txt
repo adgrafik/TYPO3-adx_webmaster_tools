@@ -1,0 +1,17 @@
+
+page.headerData.1367313464 {
+
+	# description
+	10.override {
+		data = GP: tx_news_pi1|news
+		required = 1
+		wrap = {DB: tx_news_domain_model_news: | :teaser}
+		insertData = 1
+	}
+
+	# keywords < description
+	11.override.wrap = {DB: tx_news_domain_model_news: | :keywords}
+
+	# author < description
+	12.override.wrap = {DB: tx_news_domain_model_news: | :author}
+}

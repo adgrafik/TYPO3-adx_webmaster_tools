@@ -1,0 +1,50 @@
+
+lib.adxwebmastertools.parseUrlTag.news < lib.adxwebmastertools.parseUrlTag.pages
+lib.adxwebmastertools.parseUrlTag.news {
+
+	10.location.cObject.typolink {
+
+		parameter = {$plugin.tx_news.settings.defaultDetailPid}
+		parameter.override.data = field: single_pid
+
+		additionalParams = &tx_news_pi1[news]={field: uid}&L={field: sys_language_uid}
+		additionalParams.insertData = 1
+
+		returnLast = url
+		forceAbsoluteUrl = 1
+		linkAccessRestrictedPages = 1
+	}
+}
+
+pageTxAdxWebmasterToolsSitemap {
+
+	30 {
+
+		# Get news items.
+		/*
+		SELECT tx_news_domain_model_news.uid, '' AS priority, '' AS changefrequence, tx_news_domain_model_news.datetime AS SYS_LASTCHANGED, tx_news_domain_model_news.crdate, tx_news_domain_model_news.sys_language_uid, tx_news_domain_model_category.single_pid
+		FROM tx_news_domain_model_news
+		LEFT JOIN tx_news_domain_model_news_category_mm ON ( tx_news_domain_model_news.uid = tx_news_domain_model_news_category_mm.uid_local ) 
+		LEFT JOIN tx_news_domain_model_category ON ( tx_news_domain_model_news_category_mm.uid_foreign =  tx_news_domain_model_category.uid ) 
+		WHERE tx_news_domain_model_news.pid = 109
+		GROUP BY tx_news_domain_model_news.uid
+		*/
+		60 = CONTENT
+		60 {
+
+			table = tx_news_domain_model_news
+			select {
+
+				pidInList = {$plugin.tt_news.pid_list}
+
+				selectFields = tx_news_domain_model_news.uid, '' AS priority, '' AS changefrequence, tx_news_domain_model_news.datetime AS SYS_LASTCHANGED, tx_news_domain_model_news.crdate, tx_news_domain_model_news.sys_language_uid, tx_news_domain_model_category.single_pid
+				leftjoin = tx_news_domain_model_news_category_mm ON ( tx_news_domain_model_news.uid = tx_news_domain_model_news_category_mm.uid_local ) LEFT JOIN tx_news_domain_model_category ON ( tx_news_domain_model_news_category_mm.uid_foreign =  tx_news_domain_model_category.uid )
+				andWhere = tx_news_domain_model_category.hidden = 0 AND tx_news_domain_model_category.deleted = 0
+				groupBy = tx_news_domain_model_news.uid
+				orderBy = tx_news_domain_model_news.sys_language_uid, tx_news_domain_model_category.uid
+			}
+
+			renderObj < lib.adxwebmastertools.parseUrlTag.news
+		}
+	}
+}

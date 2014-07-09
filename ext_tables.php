@@ -159,11 +159,14 @@ t3lib_extMgm::addToAllTCAtypes('pages',
 t3lib_extMgm::addLLrefForTCAdescr('pages', 'EXT:' . $_EXTKEY . '/Resources/Private/Language/LocallangCSH.xml');
 
 // Add static TypoScript files
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Meta/', 'ad: Webmaster Tools meta-tags');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Meta/Common/', 'ad: Webmaster Tools meta-tags');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Meta/tt_news/', 'ad: Webmaster Tools meta-tags tt_news');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Meta/news/', 'ad: Webmaster Tools meta-tags news');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Verification/', 'ad: Webmaster Tools verification');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/GoogleAnalytics/', 'ad: Webmaster Tools Google Analytics');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/Common/', 'ad: Webmaster Tools XML sitemap common');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/tt_news/', 'ad: Webmaster Tools XML sitemap tt_news');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/news/', 'ad: Webmaster Tools XML sitemap news');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/RSS2/tt_news/', 'ad: Webmaster Tools RSS2 tt_news');
 
 ?>

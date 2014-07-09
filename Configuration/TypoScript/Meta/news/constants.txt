@@ -1,0 +1,6 @@
+
+plugin.tx_news {
+
+	# Add new constant for single page view for XML sitemap.
+	settings.defaultDetailPid = 0
+}

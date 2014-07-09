@@ -9,13 +9,6 @@ page.headerData.1367313464 {
 
 		data = {$plugin.tx_adxwebmastertools.meta.description}
 
-		override {
-			data = GP: tx_ttnews|tt_news
-			required = 1
-			wrap = {DB: tt_news: | :short}
-			insertData = 1
-		}
-
 		required = 1
 		htmlSpecialChars = 1
 
@@ -29,7 +22,6 @@ page.headerData.1367313464 {
 	11 < .10
 	11 {
 		data = {$plugin.tx_adxwebmastertools.meta.keywords}
-		override.wrap = {DB: tt_news: | :keywords}
 		wrap = <meta name="keywords" content=" | " />
 		case = lower
 	}
@@ -38,7 +30,6 @@ page.headerData.1367313464 {
 	12 < .10
 	12 {
 		data = {$plugin.tx_adxwebmastertools.meta.author}
-		override.wrap = {DB: tt_news: | :author}
 		wrap = <meta name="author" content=" | " />
 	}
 
