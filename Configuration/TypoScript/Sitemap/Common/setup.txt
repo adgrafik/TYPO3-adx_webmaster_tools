@@ -8,9 +8,9 @@ lib.adxwebmastertools.parseUrlTag.pages {
 
 		parameter.data = field: uid
 
-		additionalParams = &L={field: sys_language_uid}
+		additionalParams.outerWrap.wrap = | &L={field: sys_language_uid}
+		additionalParams.outerWrap.if.isTrue.field = sys_language_uid
 		additionalParams.insertData = 1
-		additionalParams.if.isTrue.field = sys_language_uid
 
 		returnLast = url
 		forceAbsoluteUrl = 1

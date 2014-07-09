@@ -11,7 +11,9 @@ page.headerData.1367313464 {
 
 	# keywords < description
 	11.override.wrap = {DB: tx_news_domain_model_news: | :keywords}
+	11.override.insertData = 1
 
 	# author < description
 	12.override.wrap = {DB: tx_news_domain_model_news: | :author}
+	12.override.insertData = 1
 }

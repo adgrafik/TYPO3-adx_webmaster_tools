@@ -7,7 +7,7 @@ lib.adxwebmastertools.parseUrlTag.news {
 		parameter = {$plugin.tx_news.settings.defaultDetailPid}
 		parameter.override.data = field: single_pid
 
-		additionalParams = &tx_news_pi1[news]={field: uid}&L={field: sys_language_uid}
+		additionalParams = &tx_news_pi1[news]={field: uid}
 		additionalParams.insertData = 1
 
 		returnLast = url
@@ -35,7 +35,7 @@ pageTxAdxWebmasterToolsSitemap {
 			table = tx_news_domain_model_news
 			select {
 
-				pidInList = {$plugin.tt_news.pid_list}
+				pidInList = {$plugin.tx_news.settings.pidList}
 
 				selectFields = tx_news_domain_model_news.uid, '' AS priority, '' AS changefrequence, tx_news_domain_model_news.datetime AS SYS_LASTCHANGED, tx_news_domain_model_news.crdate, tx_news_domain_model_news.sys_language_uid, tx_news_domain_model_category.single_pid
 				leftjoin = tx_news_domain_model_news_category_mm ON ( tx_news_domain_model_news.uid = tx_news_domain_model_news_category_mm.uid_local ) LEFT JOIN tx_news_domain_model_category ON ( tx_news_domain_model_news_category_mm.uid_foreign =  tx_news_domain_model_category.uid )
