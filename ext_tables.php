@@ -147,7 +147,7 @@ $TCA['pages']['palettes']['tx_adxwebmastertools_google_analytics'] = array(
 	'canNotCollapse' => 1,
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns, 1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages', 
 	'--palette--;LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_verification.palette;tx_adxwebmastertools_verification,
 	--palette--;LLL:EXT:adx_webmaster_tools/Resources/Private/Language/Locallang.xml:tx_adxwebmastertools_google_analytics.palette;tx_adxwebmastertools_google_analytics,
