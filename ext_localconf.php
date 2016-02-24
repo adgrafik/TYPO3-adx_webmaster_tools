@@ -12,5 +12,3 @@ $TYPO3_CONF_VARS['FE']['addRootLineFields'] .= ',tx_adxwebmastertools_google_ana
 // add page types to real url
 $TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT']['fileName']['index']['rss.xml']['keyValues']['type'] = 1341932124;
 $TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT']['fileName']['index']['sitemap.xml']['keyValues']['type'] = 1341932156;
-
-?>

@@ -167,5 +167,3 @@ $TCA['pages']['palettes']['tx_adxwebmastertools_google_analytics'] = array(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/tt_news/', 'ad: Webmaster Tools XML sitemap tt_news');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Sitemap/news/', 'ad: Webmaster Tools XML sitemap news');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/RSS2/tt_news/', 'ad: Webmaster Tools RSS2 tt_news');
-
-?>
